@@ -1,9 +1,9 @@
+// convertirNumeroConDecimales.cpp
 #include <iostream>
 #include <string>
-#include <cmath>
 using namespace std;
 
-// Función para convertir los números del 1 al 19
+// Funciones de conversión (declaradas y definidas aquí)
 string convertirUnidad(int num) {
     switch (num) {
         case 1: return "uno";
@@ -29,7 +29,6 @@ string convertirUnidad(int num) {
     }
 }
 
-// Función para convertir decenas
 string convertirDecenas(int num) {
     switch (num) {
         case 2: return "veinte";
@@ -44,7 +43,6 @@ string convertirDecenas(int num) {
     }
 }
 
-// Función para convertir centenas
 string convertirCentenas(int num) {
     switch (num) {
         case 1: return "cien";
@@ -60,37 +58,31 @@ string convertirCentenas(int num) {
     }
 }
 
-// Función para convertir la parte entera a letras
 string convertirParteEntera(int num) {
     if (num == 0) return "cero";
     if (num < 20) return convertirUnidad(num);
 
     string resultado = "";
 
-    // Verificar centenas
     if (num >= 100) {
         int centenas = num / 100;
         resultado += convertirCentenas(centenas) + " ";
         num %= 100;
     }
 
-    // Verificar decenas
     if (num >= 20) {
         int decenas = num / 10;
         resultado += convertirDecenas(decenas) + " ";
         num %= 10;
     }
 
-    // Verificar unidades
     if (num > 0) {
         resultado += convertirUnidad(num);
     }
 
-    // Retirar el espacio extra al final
     return resultado;
 }
 
-// Función para convertir la parte decimal a letras
 string convertirParteDecimal(int num) {
     string resultado = "";
     while (num > 0) {
@@ -101,15 +93,12 @@ string convertirParteDecimal(int num) {
     return resultado;
 }
 
-// Función principal para convertir el número con decimales a letras
 string convertirANumeroConDecimalEnLetras(float num) {
-    // Separar la parte entera y la parte decimal
     int parteEntera = static_cast<int>(num);
-    int parteDecimal = static_cast<int>((num - parteEntera) * 100);  // Tomamos hasta 2 decimales
+    int parteDecimal = static_cast<int>((num - parteEntera) * 100); // Hasta 2 decimales
 
     string resultado = convertirParteEntera(parteEntera) + " punto ";
 
-    // Convertir la parte decimal
     if (parteDecimal > 0) {
         resultado += convertirParteDecimal(parteDecimal);
     } else {
@@ -117,18 +106,5 @@ string convertirANumeroConDecimalEnLetras(float num) {
     }
 
     return resultado;
-}
-
-int main() {
-    float numero;
-
-    // Solicitar al usuario un número con decimales
-    cout << "Ingresa un numero con decimales (por ejemplo, 654.68): ";
-    cin >> numero;
-
-    // Convertir y mostrar el número en letras
-    cout << "El numero " << numero << " en letras es: " << convertirANumeroConDecimalEnLetras(numero) << endl;
-
-    return 0;
 }
 
