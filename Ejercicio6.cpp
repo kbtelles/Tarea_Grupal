@@ -1,3 +1,4 @@
+// convertirNumero.cpp
 #include <iostream>
 #include <string>
 using namespace std;
@@ -87,23 +88,5 @@ string convertirANumeroEnLetras(int num) {
 
     // Retirar el espacio extra al final
     return resultado;
-}
-
-int main() {
-    int numero;
-
-    // Solicitar al usuario un número
-    cout << "Ingresa un numero entre 0 y 999: ";
-    cin >> numero;
-
-    // Validar el rango
-    if (numero < 0 || numero > 999) {
-        cout << "Numero fuera de rango, por favor ingresa un numero entre 0 y 999." << endl;
-    } else {
-        // Convertir y mostrar el número en letras
-        cout << "El numero " << numero << " en letras es: " << convertirANumeroEnLetras(numero) << endl;
-    }
-
-    return 0;
 }
 

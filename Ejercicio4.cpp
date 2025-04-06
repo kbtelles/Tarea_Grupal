@@ -1,7 +1,9 @@
+// tabla.cpp
 #include <iostream>
 using namespace std;
 
-int main() {
+// Función para mostrar la tabla de multiplicar
+void mostrarTablaMultiplicar() {
     int numero;
 
     // Solicitar al usuario el número para la tabla de multiplicar
@@ -13,7 +15,5 @@ int main() {
     for (int i = 1; i <= 10; ++i) {
         cout << numero << " x " << i << " = " << numero * i << endl;
     }
-
-    return 0;
 }
 
