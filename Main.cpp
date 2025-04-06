@@ -13,7 +13,10 @@
 #include "cajeroAutomatico15.cpp"  // Incluir el archivo del cajero automático
 #include "factorialNumero(libre18).cpp"  // Incluir el archivo del factorial
 #include "sumaElementos(libre19).cpp"  // Incluir el archivo de la suma de elementos
-
+#include "verificar_par_impar.cpp"
+#include "converciones.cpp"
+#include "forma_grafica.cpp"
+#include "movimiento.cpp"
 #include <iostream>
 
 using namespace std;
@@ -32,6 +35,11 @@ void decimal_hexadecimal(int num);
 void dibujarCuadrado();
 void dibujarTriangulo();
 void dibujarRectangulo();
+void verificarParImpar();
+void conversiones();
+void formaGraficaMultiplicacion();
+void gotoxy(int x, int y) ;
+void movimientoEstrella();
 
 string convertirUnidad(int num);
 string convertirDecenas(int num);
@@ -51,14 +59,18 @@ int main() {
         cout << "===============================" << endl;
         cout << "Seleccione el programa que desea ejecutar:" << endl;
         cout << "1. Operaciones Basicas (Suma, Resta, Multiplicacion, Division)" << endl;
+        cout << "2. Verificar si un numero es par o impar (modo interactivo)" << endl;
+        cout << "3. Conversor de unidades (km/millas, lb/kg, etc.)" << endl;
         cout << "4. Verificar si una palabra/frase es palindromo" << endl; 
         cout << "5. Convertir un numero a romano." << endl;
         cout << "6. Convertir un numero a palabras (entre 0 y 999)" << endl;
         cout << "8. Mostrar la tabla de multiplicar de un numero" << endl;
         cout << "9. Mostrar todas las tablas de multiplicar del 1 al 10" << endl;
+        cout << "10. Multiplicacion manual en forma grafica" << endl;
         cout << "11. Convertir un numero decimal a binario." << endl; 
         cout << "12. Convertir un numero decimal a hexadecimal." << endl;
         cout << "13. Dibujar una figura geometrica (Cuadrado, Triangulo, Rectangulo)." << endl;
+        cout << "14. Movimiento de estrella por pantalla" << endl;
         cout << "15. Acceder al Cajero Automatico" << endl;  // Nueva opción para el Cajero
         cout << "16. Calcular la hipotenusa de un triangulo." << endl;
         cout << "17. Calcular el promedio de notas de un estudiante." << endl;
@@ -73,6 +85,15 @@ int main() {
             case 1:
                 operacionesBasicas();  // Llamar a la función de operaciones básicas
                 break;
+            
+            case 2:
+            verificarParImpar();
+            break;
+            
+            case 3:
+            conversiones();
+            break;
+
 
             case 4:
                 cin.ignore(); // Para limpiar el buffer antes de getline
@@ -113,6 +134,10 @@ int main() {
             case 9:
                 generarTablas();
                 break;
+                
+            case 10:
+            formaGraficaMultiplicacion();
+            break;
 
             case 11:
                 cout << "Ingresa un numero decimal: ";
@@ -145,6 +170,10 @@ int main() {
                     cout << "Opcion no valida." << endl;
                 }
                 break;
+                
+            case 14:
+            movimientoEstrella();
+            break;
 
             case 15:  // Llamar al Cajero Automático
                 cajeroAutomatico();  // Llamar la función del Cajero
