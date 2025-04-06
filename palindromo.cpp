@@ -3,7 +3,6 @@ using namespace std;
 
 string quitarEspacios(string palabra) {
     string palabrasSinEspacios;
-    
     for (int i = 0; i < palabra.length(); i++) {
         if (palabra[i] != ' ') {
             palabrasSinEspacios += palabra[i];
@@ -14,7 +13,6 @@ string quitarEspacios(string palabra) {
 
 bool EsPalindromo(string palabra) {
     int a = 0, b = palabra.length() - 1;
-    
     while (a < b) {
         if (tolower(palabra[a]) != tolower(palabra[b])) {
             return false;
@@ -34,15 +32,15 @@ bool EsNumero(string palabra) {
     return true;
 }
 
-int main(void) {
+// Esta es la función que servira para llamar desde el menú
+void ejecutarPalindromo() {
     string entrada, entradaSinEspacios;
-    
+
     cout << "Ingrese una palabra/frase o numero: ";
     getline(cin, entrada);
-    
+
     entradaSinEspacios = quitarEspacios(entrada);
-    
-    
+
     if (EsPalindromo(entradaSinEspacios)) {
         cout << "SI es palindromo." << endl;
     } else {
