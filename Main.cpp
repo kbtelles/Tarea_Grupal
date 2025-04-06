@@ -6,6 +6,11 @@
 #include "hipotenusa.cpp"
 #include "promedio.cpp" 
 #include "paridad_numero_positivo.cpp"
+#include "Tablas_multiplicar.cpp"
+#include "Decimal_binario.cpp"
+#include "Decimal_hexadecimal.cpp"
+#include "Figuras_geometricas.cpp" 
+
 //#include "Ejercicio7.cpp"
 #include <iostream>
 
@@ -17,7 +22,12 @@ void ejecutarPalindromo();
 void calcularHipotenusa(); 
 void calcularPromedio(); 
 void analizarNumeros(int numero);
-
+void generarTablas();
+void decimal_binario(int num);
+void decimal_hexadecimal(int num);
+void dibujarCuadrado();
+void dibujarTriangulo();
+void dibujarRectangulo();
 
 string convertirUnidad(int num);
 string convertirDecenas(int num);
@@ -37,6 +47,10 @@ int main() {
     cout << "6. Convertir un numero a palabras (entre 0 y 999)" << endl;
     //cout << "7. Convertir un numero con decimales a palabras" << endl;
     cout << "8. Mostrar la tabla de multiplicar de un numero" << endl;
+    cout << "9. Mostrar todas las tablas de multiplicar del 1 al 10" << endl;
+    cout << "11. Convertir un numero decimal a binario." << endl; 
+    cout << "12. Convertir un numero decimal a hexadecimal." << endl;
+    cout << "13. Dibujar una figura geometrica (Cuadrado, Triangulo, Rectangulo)." << endl;
     cout << "16. Calcular la hipotenusa de un triangulo." << endl;
     cout << "17. Calcular el promedio de notas de un estudiante." << endl;
     cout << "20. Verificar la paridad de un numero entero positivo."<<endl;
@@ -78,6 +92,42 @@ int main() {
             case 8:
              mostrarTablaMultiplicar(); 
        	    break;
+       	    
+       	    case 9:
+            generarTablas();
+            break;
+            
+            case 11:
+            cout << "Ingresa un numero decimal: ";
+            cin >> numero;
+            decimal_binario(numero);
+            break;
+            
+            case 12:
+            cout << "Ingresa un numero decimal: ";
+            cin >> numero;
+            decimal_hexadecimal(numero);
+            break;
+            
+            case 13:
+            int figura;
+            cout << "Elija una figura para dibujar:\n";
+            cout << "1. Cuadrado\n";
+            cout << "2. Triangulo\n";
+            cout << "3. Rectangulo\n";
+            cout << "Opcion: ";
+            cin >> figura;
+
+            if (figura == 1) {
+                dibujarCuadrado();
+            } else if (figura == 2) {
+                dibujarTriangulo();
+            } else if (figura == 3) {
+                dibujarRectangulo();
+            } else {
+                cout << "Opcion no valida." << endl;
+            }
+            break;
        	    
        	    case 16: 
             cin.ignore(); 
