@@ -1,5 +1,5 @@
 // para calcular la factorial de un numero
-#include <iostream>
+/*#include <iostream>
 using namespace std;
 
 int factorial(int);
@@ -18,6 +18,19 @@ int main() {
 
     return 0;
 }
+
+int factorial(int n) {
+    if (n == 0) {
+        return 1;  // Caso base: factorial de 0 es 1
+    } else {
+        return n * factorial(n - 1);  // Caso recursivo
+    }
+}*/
+#include <iostream>
+using namespace std;
+
+// Declaración de la función para calcular el factorial
+int factorial(int n);
 
 int factorial(int n) {
     if (n == 0) {

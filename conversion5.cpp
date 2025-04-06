@@ -1,4 +1,4 @@
-#include <iostream>
+/*#include <iostream>
 
 using namespace std;
 
@@ -46,4 +46,31 @@ int main() {
 
     return 0;
     system("pause");
+}*/
+#include <iostream>
+using namespace std;
+
+// Función para convertir números arábigos a romanos
+string convertirARomanos(int num) {
+    string resultado = "";
+
+    // Mapeo de los valores romanos con los números arábigos
+    pair<int, string> valores[] = {
+        {1000, "M"}, {900, "CM"}, {500, "D"}, {400, "CD"},
+        {100, "C"}, {90, "XC"}, {50, "L"}, {40, "XL"},
+        {10, "X"}, {9, "IX"}, {5, "V"}, {4, "IV"},
+        {1, "I"}
+    };
+
+    // Iterar sobre los valores romanos de mayor a menor
+    for (auto& par : valores) {
+        while (num >= par.first) {
+            resultado += par.second; // Agregar el símbolo romano
+            num -= par.first;        // Restar el valor del número
+        }
+    }
+
+    return resultado;
 }
+
+
